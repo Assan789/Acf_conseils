@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Dashboard</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Profil</a></li>
+        <li><a href="#">Paramètres</a></li>
+        <li><a href="/logout">Déconnexion</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Display flash messages -->
+  <div class="flash-messages">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+  </div>
+
+  <main>
+    <section>
+      <h2>Statistiques</h2>
+      <div class="stats-container">
+        <div class="stat">
+          <h3>Utilisateurs</h3>
+          <p class="stat-value">500</p>
+        </div>
+        <div class="stat">
+          <h3>Commandes</h3>
+          <p class="stat-value">1000</p>
+        </div>
+        <div class="stat">
+          <h3>Ventes</h3>
+          <p class="stat-value">50000$</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Liste des utilisateurs</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Rôle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>john.doe@example.com</td>
+            <td>Admin</td>
+          </tr>
+          <tr>
+            <td>Jane Smith</td>
+            <td>jane.smith@example.com</td>
+            <td>User</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
